@@ -3,20 +3,33 @@ plugins {
 }
 
 android {
-    namespace 'com.nasonovmax.lasttrack'
+    namespace 'app.lasttrack.game'
     compileSdk 34
 
     defaultConfig {
-        applicationId 'com.nasonovmax.lasttrack'
+        applicationId 'app.lasttrack.game'
         minSdk 24
         targetSdk 34
         versionCode 1
         versionName '1.0'
     }
 
+    signingConfigs {
+        release {
+            def ks = System.getenv("KEYSTORE_FILE")
+            if (ks) {
+                storeFile file(ks)
+                storePassword System.getenv("KEYSTORE_PASSWORD")
+                keyAlias System.getenv("KEY_ALIAS")
+                keyPassword System.getenv("KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
         }
     }
 
