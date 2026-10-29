@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'app.lasttrack.game'
+    namespace 'com.nasonovmax.lasttrack'
     compileSdk 34
 
     defaultConfig {
-        applicationId 'app.lasttrack.game'
+        applicationId 'com.nasonovmax.lasttrack'
         minSdk 24
         targetSdk 34
         versionCode 1
